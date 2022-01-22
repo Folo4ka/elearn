@@ -9,7 +9,7 @@
     </div>
 {% endblock %}
 {% block domready %}
-    const url = 'ws://' + window.location.host + '/ws/chat/room/' + '{{ course.id }}/';
+    const url = 'wss://' + window.location.host + '/ws/chat/room/' + '{{ course.id }}/';
     const chatSocket = new WebSocket(url);
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
