@@ -9,7 +9,13 @@
 <body>
 <div id="header">
     <a href="/" class="logo">Elearn</a>
-    <ul class="menu">
+    {% if request.user.is_authenticated %}
+        <ul class="menu">
+            <li><a href="{% url "manage_course_list" %}">My courses</a></li>
+            <li><a href="{% url "student_course_list" %}">Enrolled courses</a></li>
+        </ul>
+    {% endif %}
+    <ul class="menu ml-auto">
         {% if request.user.is_authenticated %}
             <li><a href="{% url "logout" %}">Sign out</a></li>
         {% else %}
